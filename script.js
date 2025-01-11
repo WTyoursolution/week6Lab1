@@ -2,6 +2,7 @@
 //array of numbers
 let numbers = [100, 456, 98, 45, 43, 73];
 
+document.write("<h2>All Numbers</h2>");
 //Render all elements of the numbers array as a list on an HTML page.
 for (let index = 0; index < numbers.length; index++) {
     const element = numbers[index];
@@ -16,12 +17,13 @@ document.write("<br>");
 //Render only the even numbers from the numbers array as a list on an HTML page.
 
 let even = [];
+document.write("<h1>Even Numbers</h1>")
 for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] % 2 === 0){
         even.push(numbers[i]);
 
     let evenoutput = `<li>${numbers[i]}</li>`;
-
+    
     document.write(evenoutput);
     }
 }
@@ -31,11 +33,6 @@ for (let i = 0; i < numbers.length; i++) {
 let blogPosts = [
     { id: 1, title: "Blog Post 1", author: "Author A", date: "2023-11-15" }, //0
     { id: 2, title: "Blog Post 2", author: "Author B", date: "2023-12-01" }, //1
-    { id: 3, title: "Blog Post 3", author: "Author C", date: "2023-01-02" }, 
-    { id: 4, title: "Blog Post 4", author: "Author D", date: "2023-03-03" }, 
-    { id: 5, title: "Blog Post 5", author: "Author E", date: "2023-12-22" }, 
-    { id: 6, title: "Blog Post 6", author: "Author F", date: "2023-07-12" }, 
-    { id: 7, title: "Blog Post 7", author: "Author G", date: "2023-05-09" }, 
 ];
 //blogPosts[0]
 
@@ -50,8 +47,8 @@ for (let i = 0; i < blogPosts.length; i++) {
     const blogPost = blogPosts[i];
   
     let bootstrapCard = `
-    <div class="card" style="width: 18rem;">
-    <img src="https://placehold.co/100x100" class="card-img-top" alt="placeHolder">
+    <div class="card mb-3 p-3 text-danger border border-danger rounded-5" style="width: 18rem;">
+    <img class="rounded-5" src="images/blog.jpg" class="card-img-top" alt="placeHolder">
     <div class="card-body">
     <h5 class="card-title">${blogPost.title}</h5> 
     <p class="card-text">${blogPost.date}</p>
@@ -65,8 +62,9 @@ for (let i = 0; i < blogPosts.length; i++) {
 let demo1 = document.getElementById("demo1");
 
 let bootstrapCards = `
-<div class="card" style="width: 18rem;">
-<img src="https://placehold.co/100x100" class="card-img-top" alt="placeHolder">
+<h1>${"Render One Card"}</h1>
+<div class="card rounded-5 p-3 text-danger border border-danger text-bg-primary" style="width: 18rem;">
+<img class="rounded-5" src="images/blog.jpg" class="card-img-top" alt="placeHolder">
 <div class="card-body">
 <h5 class="card-title">${blogPosts[0].title}</h5> 
 <p class="card-text">${blogPosts[0].date}</p>
@@ -77,4 +75,29 @@ let bootstrapCards = `
 
 demo1.innerHTML = bootstrapCards;
 
+let anotherBlog = [
+    { id: 1, title: "Blog Post 1", author: "Author A", date: "2023-11-15" }, //3
+    { id: 2, title: "Blog Post 2", author: "Author B", date: "2023-12-01" }, //4
+    { id: 2, title: "Blog Post 2", author: "Author B", date: "2023-12-01" }, //5
+    { id: 2, title: "Blog Post 2", author: "Author B", date: "2023-12-01" }, //6
+    { id: 2, title: "Blog Post 2", author: "Author B", date: "2023-12-01" }, //7
+];
 
+let demo2 = document.getElementById("demo2");
+
+for (let i = 0; i < anotherBlog.length; i++) {
+    const anotherBlogs = anotherBlog[i];
+  
+    let bootstrapCardz = `
+    <div class="card rounded-5 p-3 text-danger border border-danger text-bg-info mb-3" style="width: 18rem;">
+    <img class="rounded-5" src="images/blog.jpg" class="card-img-top" alt="placeHolder">
+    <div class="card-body">
+    <h5 class="card-title">${anotherBlogs.title}</h5> 
+    <p class="card-text">${anotherBlogs.date}</p>
+    <p class="date">${anotherBlogs.author}</p>
+    </div>
+    </div>
+    `;  
+
+    demo2.innerHTML += bootstrapCardz; //you need += to add both card, other words it would erase the data if you dont have +=
+}
